@@ -24,6 +24,7 @@ typedef struct graph{
     BITMAP* niveau_2;
     BITMAP* niveau0;
     BITMAP* croixrouge;
+    BITMAP* maps;
 
 }Bitmaps;
 typedef struct cases
@@ -100,6 +101,7 @@ void sauvegarde(BITMAP* sauvegarde, BITMAP* page);
 
 void quitter(BITMAP* quitter, BITMAP* page);
 void outils (Bitmaps* bitmaps,BITMAP* rect,BITMAP* page);
+void maps(BITMAP* maps, BITMAP* page);
 Bitmaps* initialisation_bitmaps();
 
 

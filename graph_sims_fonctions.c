@@ -251,7 +251,7 @@ void MAJ_graph(int ordre)
                 }
             }
             fclose(f);
-            Sleep(200);
+            sleep(200);
             return;
 }
 Bitmaps* initialisation_bitmaps(){
@@ -291,7 +291,9 @@ Bitmaps* initialisation_bitmaps(){
     Bitmaps->niveau_2=load_bitmap("menu/niveau_2.bmp",NULL);
     Bitmaps->niveau0=load_bitmap("menu/niveau0.bmp",NULL);
     Bitmaps->croixrouge=load_bitmap("menu/croixrouge.bmp",NULL);
+    Bitmaps->maps=load_bitmap("menu/map.bmp",NULL);
     Bitmaps->constr = create_bitmap(40,20);
+
     clear_bitmap( Bitmaps->constr);
 
 
@@ -427,5 +429,14 @@ void niveaux(BITMAP* niveau0,BITMAP* niveau_1,BITMAP* niveau_2,BITMAP* page){
     //textprintf_ex(page, font, 992,175, makecol(50, 100,15),-1,"-1");
     textprintf_ex(page, font, 972,230, makecol(50, 100,255),-1,"Niveau:");
     textprintf_ex(page, font, 992,250, makecol(50, 100,15),-1,"-2");*/
+
+}
+void maps(BITMAP* maps,BITMAP* page){
+    draw_sprite(page,maps,0,70);
+
+
+
+
+
 
 }

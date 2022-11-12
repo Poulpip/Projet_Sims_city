@@ -9,9 +9,24 @@ int main()
     clear_bitmap(page);
     rect = create_bitmap(SCREEN_W,SCREEN_H);
     clear_bitmap(rect);
+    /*unsigned long currentMillis=0, previousMillis=0;
+    unsigned long sec = 0;
+    srand(time(NULL));
+    currentMillis = clock();
+    sec = clock();
+    if ((currentMillis - previousMillis) >= 15000) {
+        previousMillis = currentMillis;
+    }
+    sec -= previousMillis;
+    sec = sec / 10000;
+    textprintf_ex(page, font, 0, 0, makecol(255, 0, 255), -1, "%d", sec);*/
+
+
+
 
     cases tabcases[23][35];
     Bitmaps *bitmaps=initialisation_bitmaps();
+
     for(int i=0;i<23;i++)
     {
         for(int j=0;j<35;j++)
@@ -28,33 +43,52 @@ int main()
 
 
 
+
     BITMAP* route;
     route= load_bitmap("routelosange.bmp",NULL);
+
+    maps(bitmaps->maps,page);
+
+
+
+
 
 
     for(int i=0;i<64;i++)
     {
-        line(page,0,10+21*i,20+41*i,0,makecol(255,0,255));
-        line(page ,1024-41*i,0,1024,2+21*i,makecol(255,0,255));
+        line(page,0,10+21*i,20+41*i,0,makecol(86,122,65));
+        line(page ,1024-41*i,0,1024,2+21*i,makecol(86,122,65));
     }
 
     while (!key[KEY_ESC])
     {
 
         clear_bitmap(rect);
+
         blit(page,rect,0,0,0,0,SCREEN_W,SCREEN_H);
+
+
         outils(bitmaps,rect,page);
         pause(bitmaps->pause,page);
         sauvegarde(bitmaps->sauvegarde,page);
         quitter(bitmaps->quitter,page);
         niveaux(bitmaps->niveau0,bitmaps->niveau_1,bitmaps->niveau_2,page);
+
+
+       /*
+            //printf("%d\n",sec);
+        }*/
+
+
        // if(mouse_b&1)MAJ_graph(ordre);
 
-        show_mouse(rect);
+            show_mouse(rect);
 
         blit(rect,screen,0,0,0,0,SCREEN_W,SCREEN_H);
 
     }
+
+
     destroy_bitmap(rect);
     destroy_bitmap(page);
 

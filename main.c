@@ -54,11 +54,14 @@ int main()
 
 
 
+
     for(int i=0;i<64;i++)
     {
         line(page,0,10+21*i,20+41*i,0,makecol(86,122,65));
         line(page ,1024-41*i,0,1024,2+21*i,makecol(86,122,65));
+
     }
+
 
     while (!key[KEY_ESC])
     {
@@ -67,12 +70,15 @@ int main()
 
         blit(page,rect,0,0,0,0,SCREEN_W,SCREEN_H);
 
-
+        rectfill(page, 0, 0, 1024, 70, makecol(0,0,0));
+        rectfill(page, 920, 0, 1024, 768, makecol(0,0,0));
         outils(bitmaps,rect,page);
         pause(bitmaps->pause,page);
         sauvegarde(bitmaps->sauvegarde,page);
         quitter(bitmaps->quitter,page);
+        temps(bitmaps->temps,page);
         niveaux(bitmaps->niveau0,bitmaps->niveau_1,bitmaps->niveau_2,page);
+
 
 
        /*

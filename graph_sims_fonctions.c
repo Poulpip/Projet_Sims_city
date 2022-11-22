@@ -291,8 +291,11 @@ Bitmaps* initialisation_bitmaps(){
     Bitmaps->niveau_2=load_bitmap("menu/niveau_2.bmp",NULL);
     Bitmaps->niveau0=load_bitmap("menu/niveau0.bmp",NULL);
     Bitmaps->croixrouge=load_bitmap("menu/croixrouge.bmp",NULL);
+    Bitmaps->temps=load_bitmap("menu/compteur.bmp",NULL);
     Bitmaps->maps=load_bitmap("menu/map.bmp",NULL);
+
     Bitmaps->constr = create_bitmap(40,20);
+
 
     clear_bitmap( Bitmaps->constr);
 
@@ -411,7 +414,10 @@ void quitter(BITMAP* quitter, BITMAP* page){
 
 }
 
+void temps(BITMAP* temps,BITMAP* page){
+    draw_sprite(page,temps,0,0);
 
+}
 void niveaux(BITMAP* niveau0,BITMAP* niveau_1,BITMAP* niveau_2,BITMAP* page){
 
     draw_sprite(page,niveau0,965,75);
@@ -434,9 +440,5 @@ void niveaux(BITMAP* niveau0,BITMAP* niveau_1,BITMAP* niveau_2,BITMAP* page){
 void maps(BITMAP* maps,BITMAP* page){
     draw_sprite(page,maps,0,70);
 
-
-
-
-
-
 }
+
